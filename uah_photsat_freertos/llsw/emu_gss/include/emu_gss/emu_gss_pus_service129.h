@@ -11,6 +11,10 @@
 class EmuGSS_TCProgram129_1:public EmuGSS_TCProgram{
 
 	//TODO 	Add required attributes
+	uint16_t mThetaYaw;
+	uint16_t mThetaPitch;
+	uint8_t mNumSamples;
+
 
 	virtual void BuildTCAppData(tc_mem_descriptor_t &tc_descriptor);
 
@@ -25,6 +29,10 @@ public:
 class EmuGSS_TCProgram129_2:public EmuGSS_TCProgram{
 
 	//TODO   Add required attributes
+	float mKp;
+	float mKi;
+	float mKd;
+
 
 	virtual void BuildTCAppData(tc_mem_descriptor_t &tc_descriptor);
 

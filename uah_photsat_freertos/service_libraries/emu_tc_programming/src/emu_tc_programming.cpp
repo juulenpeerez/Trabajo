@@ -32,9 +32,9 @@
 #include <public/emu_sc_channel_drv_v1.h>
 #include <public/emu_gss_v1.h>
 
-//TODO Complete FT_UAH_PHOTSAT_SERV_129_0010
+//TODO 06 Complete FT_UAH_PHOTSAT_SERV_129_0010
 #ifdef FT_UAH_PHOTSAT_SERV_129_0010
 
-//TODO Complete FT_UAH_PHOTSAT_SERV_129_FDIR_0020
+//TODO 07 Complete FT_UAH_PHOTSAT_SERV_129_FDIR_0020
 #ifdef FT_UAH_PHOTSAT_SERV_129_FDIR_0020
 

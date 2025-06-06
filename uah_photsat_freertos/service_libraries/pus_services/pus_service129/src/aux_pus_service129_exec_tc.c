@@ -57,7 +57,7 @@ void pus_service129_exec_TC_129_1(tc_handler_t *ptc_handler) {
 	int16_t ThetaYaw;
 	uint8_t num_of_images;
 
-	//TODO Get Theta Pitch, Theta Yaw and num of images
+	//TODO 03 Get Theta Pitch, Theta Yaw and num of images
 
 	if (error) {
 
@@ -100,7 +100,7 @@ void pus_service129_exec_TC_129_2(tc_handler_t *ptc_handler) {
 	float Ki;
 	float Kd;
 
-	//TODO Get Kp, Ki and Kd
+	//TODO 02 Get Kp, Ki and Kd
 
 
 	if (error) {
