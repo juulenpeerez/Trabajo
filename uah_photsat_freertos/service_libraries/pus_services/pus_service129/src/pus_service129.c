@@ -43,7 +43,20 @@ void pus_service129_do_attitude_ctrl() {
 
 void pus_service129_exec_tc(tc_handler_t *ptc_handler) {
 
-//TODO 01 Complete the execution logic of TC[129,1], TC[129,2] & TC[129,3]
+//TODO Complete the execution logic of TC[129,1], TC[129,2] & TC[129,3]
+		switch (ptc_handler->tc_df_header.subtype){
+			case (1):
+				pus_service129_exec_TC_129_1(ptc_handler);
+				break;
+			case (2):
+				pus_service129_exec_TC_129_2(ptc_handler);
+				break;
+			case (3):
+				pus_service129_exec_TC_129_3(ptc_handler);
+				break;
+			default:
+				break;
+		}
 
 }
 
