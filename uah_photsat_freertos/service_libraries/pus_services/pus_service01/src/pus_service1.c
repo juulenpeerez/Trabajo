@@ -39,7 +39,6 @@ tc_accept_report_t pus_service1_tc_acceptation(tc_handler_t *ptc_handler) {
 
 	uint16_t crc_offset;
 
-
 	if (ptc_handler) {
 		//Get Headers and pack error control from tc bytes
 
@@ -66,12 +65,11 @@ tc_accept_report_t pus_service1_tc_acceptation(tc_handler_t *ptc_handler) {
 
 			accept_report.accept_status = TCAcceptationSourceIDError;
 
-		} else if (pus_services_sat_in_observation_mode()){
+		} else if (pus_services_sat_in_observation_mode()) {
 
 			accept_report.accept_status = TCAcceptationInObservationModeError;
 
-		}else {
-
+		} else {
 
 			accept_report.accept_status = TCAcceptationOK;
 
@@ -79,7 +77,7 @@ tc_accept_report_t pus_service1_tc_acceptation(tc_handler_t *ptc_handler) {
 			case (9):
 				switch (ptc_handler->tc_df_header.subtype) {
 				case (129):
-						break;
+					break;
 				default:
 					accept_report.accept_status = TCAcceptationSubTypeError;
 				}
@@ -173,25 +171,26 @@ tc_accept_report_t pus_service1_tc_acceptation(tc_handler_t *ptc_handler) {
 					accept_report.accept_status = TCAcceptationSubTypeError;
 				}
 				break;
-			//TODO Accept ST[129] TCs
+				//TODO Accept ST[129] TCs
 			case (129):
-				switch(ptc_handler->tc_df_header.subtype) {
+				switch (ptc_handler->tc_df_header.subtype) {
 				case (1):
 				case (2):
 				case (3):
 				case (4):
 					break;
 				default:
-				//TC is not accepted
-				accept_report.accept_status = TCAcceptationTypeError;
-				break;
+					//TC is not accepted
+					accept_report.accept_status = TCAcceptationTypeError;
+					break;
 
+				}
 			}
 		}
+
+		return accept_report;
+
 	}
-
-	return accept_report;
-
 }
 
 error_code_t pus_service1_tx_TM_1_1(tc_handler_t *ptc_handler) {

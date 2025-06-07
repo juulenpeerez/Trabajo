@@ -57,7 +57,7 @@ void pus_service129_exec_TC_129_1(tc_handler_t *ptc_handler) {
 	int16_t ThetaYaw;
 	uint8_t num_of_images;
 
-	//TODO 03 Get Theta Pitch, Theta Yaw and num of images
+	//TODO Get Theta Pitch, Theta Yaw and num of images
 	//Theta Pitch
 	error = tc_handler_get_float_appdata_field(ptc_handler,&ThetaPitch);
 	//ThetaYaw
