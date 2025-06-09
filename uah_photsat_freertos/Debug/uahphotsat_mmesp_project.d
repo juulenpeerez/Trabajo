@@ -66,7 +66,8 @@ uahphotsat_mmesp_project.o: ../uahphotsat_mmesp_project.cpp \
  /home/atcsol/git/Trabajo/uah_photsat_freertos/service_libraries/pus_services/pus_service128/include/public/pus_service128.h \
  /home/atcsol/git/Trabajo/uah_photsat_freertos/service_libraries/pus_services/pus_service129/include/public/pus_service129.h \
  /home/atcsol/git/Trabajo/uah_photsat_freertos/asw/components/cctcmanager/include/public/cctcmanager_iface_v1.h \
- /home/atcsol/git/Trabajo/uah_photsat_freertos/llsw/sc_channel_drv/include/public/sc_channel_drv_v1.h
+ /home/atcsol/git/Trabajo/uah_photsat_freertos/llsw/sc_channel_drv/include/public/sc_channel_drv_v1.h \
+ /home/atcsol/git/Trabajo/uah_photsat_freertos/asw/components/ccobsmng/include/public/ccobsmng_iface_v1.h
 
 /home/atcsol/git/Trabajo/uah_photsat_freertos/asw/edroom_glue/include/public/edroom_glue.h:
 
@@ -203,3 +204,5 @@ uahphotsat_mmesp_project.o: ../uahphotsat_mmesp_project.cpp \
 /home/atcsol/git/Trabajo/uah_photsat_freertos/asw/components/cctcmanager/include/public/cctcmanager_iface_v1.h:
 
 /home/atcsol/git/Trabajo/uah_photsat_freertos/llsw/sc_channel_drv/include/public/sc_channel_drv_v1.h:
+
+/home/atcsol/git/Trabajo/uah_photsat_freertos/asw/components/ccobsmng/include/public/ccobsmng_iface_v1.h:

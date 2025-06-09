@@ -11,7 +11,7 @@
 	// CONSTRUCTORS***********************************************
 
 CCObsMng::EDROOM_CTX_Top_0::EDROOM_CTX_Top_0(CCObsMng &act,
-	   & EDROOMpVarVNextTimeOut ):
+	 Pr_Time & EDROOMpVarVNextTimeOut ):
 
 	EDROOMcomponent(act),
 	Msg(EDROOMcomponent.Msg),
@@ -92,7 +92,7 @@ void	CCObsMng::EDROOM_CTX_Top_0::FExecObsMng_TC()
   CDTCHandler & varSOBSMNG = *(CDTCHandler *)Msg->data;
 // Data access
  
-varSOBSMNG.Exectc()
+varSOBSMNG.ExecTC();
 
 }
 
@@ -164,7 +164,7 @@ bool	CCObsMng::EDROOM_CTX_Top_0::GReadyToObservation()
 
 {
 
-retunr pus_service129_is_observation_ready();
+return pus_service129_is_observation_ready();
 
 }
 
