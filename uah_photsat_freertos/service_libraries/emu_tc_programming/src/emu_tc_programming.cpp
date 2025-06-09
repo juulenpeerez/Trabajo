@@ -32,73 +32,75 @@
 #include <public/emu_sc_channel_drv_v1.h>
 #include <public/emu_gss_v1.h>
 
-//TODO 06 Complete FT_UAH_PHOTSAT_SERV_129_0010
-//TODO 07 Complete FT_UAH_PHOTSAT_SERV_129_FDIR_0020
+
 
 #define  FT_UAH_PHOTSAT_SERV_129_0010
 #define  FT_UAH_PHOTSAT_SERV_129_FDIR_0020
 
+/*
+//TODO 06 Complete FT_UAH_PHOTSAT_SERV_129_0010
+//The aim of this test is to prove that the system works properly
 #ifdef FT_UAH_PHOTSAT_SERV_129_0010
-//TODO Complete FT_UAH_PHOTSAT_SERV_129_0010
-EmuGSS_TCProgram129_2 prog_FT_UAH_PHOTSAT_SERV_129_0010_step0(
-OBT_AFTER_POWER_ON + 0,
-"FT_UAH_PHOTSAT_SERV_129_0010_STEP0: Configuración del PID (Kp=1.0, Ki=0.0, Kd=0.0)",
-1.0, 0.0, 0.0);
 
-EmuGSS_TCProgram129_1 prog_FT_UAH_PHOTSAT_SERV_129_0010_step1(
-OBT_AFTER_POWER_ON + 5,
-"FT_UAH_PHOTSAT_SERV_129_0010_STEP1: Ejecución de la observación (ThetaPitch=30, ThetaYaw=45,num_samples=3)",
-30, 45, 3);
+//Emulation of an observation with the inidcated values
+EmuGSS_TCProgram129_1 prog_FT_UAH_PHOTSAT_SERV_129_0010_step0(
+OBT_AFTER_POWER_ON ,
+"FT_UAH_PHOTSAT_SERV_129_0010_STEP1: Simulation of an observation with the the next simulated values (ThetaPitch=30, ThetaYaw=45,num_samples=5)",1800, 2700, 5);
 #endif
 
-#ifdef FT_UAH_PHOTSAT_SERV_129_FDIR_0020
-//TODO Complete FT_UAH_PHOTSAT_SERV_129_FDIR_0020
+*/
 
-// Paso 0: Acción recuperadora (evento FDIR ha disparado TC[129,3])
+//TODO 07 Complete FT_UAH_PHOTSAT_SERV_129_FDIR_0020
+#ifdef FT_UAH_PHOTSAT_SERV_129_FDIR_0020
+
+
+// Rest of the angles to zero
 EmuGSS_TCProgram19_1_Action_129_3 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step0(
 OBT_AFTER_POWER_ON + 0,
-"FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP0: Acción FDIR recuperadora: reset de actitud con TC[129,3]",
+"FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP0: Reset of the angles to cero with TC[129,3]",
 0x4003);
 
-//Paso 1: Habilitamos la acción del evento.
-EmuGSS_TCProgram19_4 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step1(
+//Add the monitoring of ThetaPitch
+EmuGSS_TCProgram12_5_Value_UINT8 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step1(
 OBT_AFTER_POWER_ON + 5,
-"FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP1: AHabilitamos el evento 0x4003",
-0x4003);
-
-//Paso 2: Añadimos la monitorización de los parámetros ThetaPitch_W_ControlPID
-EmuGSS_TCProgram12_5_Value_UINT8 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step2(
-OBT_AFTER_POWER_ON + 10,
-"FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP2 ,Define PMOIND 1 para monitorear el PID 13",
+"FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP2 ,Define PMOIND 1 for monitoring PID 13",
 1, 13, 1, 1, 0xFF, 0x00, 0x4003);
 
-//Paso 3: Añadimos la monitorización de los parámetros ThetaYaw_W_ControlPID
-EmuGSS_TCProgram12_5_Value_UINT8 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step3(
-OBT_AFTER_POWER_ON + 15,
-"FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP3 ,Define PMOIND 1 para monitorear el PID 14",
+//Add the monitoring of ThetaYaw
+EmuGSS_TCProgram12_5_Value_UINT8 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step2(
+OBT_AFTER_POWER_ON + 10,
+"FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP3 ,Define PMOIND 2 for monitoring PID 14",
 2, 14, 1, 1, 0xFF, 0x00, 0x4003);
 
-//Paso 4: Habilitamos el monitor para ThetaPitch_W_ControlPID.
+//Activation of the monitoring of Thetapitch
+EmuGSS_TCProgram12_1 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step3(
+OBT_AFTER_POWER_ON + 15,
+"FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP4, Monitoring PMONID 1", 1);
+
+//Activation of the monitoring of ThetaYaw
 EmuGSS_TCProgram12_1 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step4(
 OBT_AFTER_POWER_ON + 20,
-"FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP4, Habilita el PMONID 1", 1);
+"FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP5, Monitoring PMONID 2", 2);
 
-//Paso 5: Habilitamos el monitor para ThetaYaw_W_ControlPID.
-EmuGSS_TCProgram12_1 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step5(
+//Allowance of events-results
+EmuGSS_TCProgram19_4 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step5(
 OBT_AFTER_POWER_ON + 25,
-"FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP5, Habilita el PMONID 2", 2);
+"FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP1: allowance of the event 0x4003",
+0x4003);
 
-// Paso 6: Configurar el PID con ganancias altas (provocará exceso de velocidad)
+
+// Set the values to high levels
 EmuGSS_TCProgram129_2 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step6(
 OBT_AFTER_POWER_ON + 30,
-"FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP6:Configura PID con valores altos (Kp=0.5, Ki=0.5, Kd=0.5)",
+"FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP6:Configuration PID with high values (Kp=0.5, Ki=0.5, Kd=0.5)",
 0.5, 0.5, 0.5);
 
-// Paso 7: Enviar TC[129,1] con observación agresiva (ángulo lejano de 0,0)
+//try to make the pictures
 EmuGSS_TCProgram129_1 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step7(
 OBT_AFTER_POWER_ON + 35,
-"FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP7:Comanda observación forzada (ThetaPitch=30, ThetaYaw=45, num_samples=3)",
+"FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP7: Simulation with forzed values (ThetaPitch=30, ThetaYaw=45, num_samples=3)",
 45, 23, 3);
+
 
 #endif
 

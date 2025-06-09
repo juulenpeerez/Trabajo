@@ -38,15 +38,10 @@
 #include "../../pus_service03/include/pus_service3/aux_pus_service3_tx_tm.h"
 
 //TODO Define SID 20 with parameters 12, 30, 31, 32, 33, 13, 14
-#define SID_20_PARAM_1 12
-#define SID_20_PARAM_2 30
-#define SID_20_PARAM_3 31
-#define SID_20_PARAM_4 32
-#define SID_20_PARAM_5 33
-#define SID_20_PARAM_6 13
-#define SID_20_PARAM_7 14
+
 
 HK_config_t HKConfig[PUS_SERVICE3_MAX_NUM_OF_SIDS] = {
+		{ SIDEnabled, 20, 1, 0, 7, { 12, 30, 31, 32, 33, 13, 14, 0, 0, 0, 0, 0 } },
 		{ SIDDisabled, 0, 10, 0, 5, { 0, 1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0 } },
 		{ SIDDisabled, 10, 4, 0, 3, { 5, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
 		{ SIDDisabled, 11, 5, 0, 2, { 14, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
