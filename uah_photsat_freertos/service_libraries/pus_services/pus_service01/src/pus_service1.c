@@ -177,7 +177,6 @@ tc_accept_report_t pus_service1_tc_acceptation(tc_handler_t *ptc_handler) {
 				case (1):
 				case (2):
 				case (3):
-				case (4):
 					break;
 				default:
 					//TC is not accepted

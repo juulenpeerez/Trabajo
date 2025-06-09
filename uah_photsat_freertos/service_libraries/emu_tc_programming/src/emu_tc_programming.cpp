@@ -37,7 +37,7 @@
 #define  FT_UAH_PHOTSAT_SERV_129_0010
 #define  FT_UAH_PHOTSAT_SERV_129_FDIR_0020
 
-/*
+
 //TODO 06 Complete FT_UAH_PHOTSAT_SERV_129_0010
 //The aim of this test is to prove that the system works properly
 #ifdef FT_UAH_PHOTSAT_SERV_129_0010
@@ -48,7 +48,9 @@ OBT_AFTER_POWER_ON ,
 "FT_UAH_PHOTSAT_SERV_129_0010_STEP1: Simulation of an observation with the the next simulated values (ThetaPitch=30, ThetaYaw=45,num_samples=5)",1800, 2700, 5);
 #endif
 
-*/
+
+
+/*
 
 //TODO 07 Complete FT_UAH_PHOTSAT_SERV_129_FDIR_0020
 #ifdef FT_UAH_PHOTSAT_SERV_129_FDIR_0020
@@ -104,5 +106,5 @@ OBT_AFTER_POWER_ON + 35,
 
 #endif
 
-
+*/
 
