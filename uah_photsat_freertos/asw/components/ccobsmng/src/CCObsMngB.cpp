@@ -19,7 +19,7 @@ CCObsMng::EDROOM_CTX_Top_0::EDROOM_CTX_Top_0(CCObsMng &act,
 	ObsMngCtrl(EDROOMcomponent.ObsMngCtrl),
 	AttCtrlTimer(EDROOMcomponent.AttCtrlTimer),
 	ObsTimer(EDROOMcomponent.ObsTimer),
-	CImageInterval(1,500000),
+	CImageInterval(0,500000),
 	VNextTimeout(EDROOMpVarVNextTimeout)
 {
 }
@@ -114,7 +114,7 @@ void	CCObsMng::EDROOM_CTX_Top_0::FInit()
  
 	
 time.GetTime(); // Get current monotonic time   
-time+=Pr_Time(0, 50000); // Add 100000 microsegundos    
+time+=Pr_Time(0, 100000); // Add 100000 microsegundos    
 VNextTimeout=time;
  
    //Program absolute timer 
