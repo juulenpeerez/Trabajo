@@ -35,7 +35,7 @@ public:
 	 */
 	 enum TEDROOMCCObsMngSignal { EDROOMSignalTimeout, 
 							EDROOMSignalDestroy, 
-							SOBSMNG };
+							SObsMng_TC };
 
 	/**
 	 * \class CCObsMng::CEDROOMMemory
@@ -102,10 +102,10 @@ public:
 	CEDROOMTimingSAP	 EDROOMtimingSAP;
 
 
-	//! ObservTimer Timing Port
-	CEDROOMTimingInterface	ObservTimer;
 	//! AttCtrlTimer Timing Port
 	CEDROOMTimingInterface	AttCtrlTimer;
+	//! ObsTimer Timing Port
+	CEDROOMTimingInterface	ObsTimer;
 
 
 
@@ -174,7 +174,7 @@ public:
 	 */
 	enum TEDROOMCCObsMngSignal { EDROOMSignalTimeout,
 		EDROOMSignalDestroy,
-		SOBSMNG };
+		SObsMng_TC };
 
 
 		friend class CCObsMng;
@@ -190,8 +190,8 @@ public:
 
 		//!Component ports
 		CEDROOMInterface & ObsMngCtrl;
-		CEDROOMTimingInterface & ObservTimer;
 		CEDROOMTimingInterface & AttCtrlTimer;
+		CEDROOMTimingInterface & ObsTimer;
 
 
 		//! State Identifiers
@@ -204,10 +204,10 @@ public:
 			DoAttitudeCtrl,
 			DoAttitudeCtrl_ToObservation,
 			DoAttitudeCtrl_ProgAttitudeCtrl,
-			ExecTC,
-			Image,
-			Image_ToStandBy,
-			Image_ProgTakeImage,
+			TakeImage,
+			TakeImage_ToStandby,
+			TakeImage_ProgTakeImg,
+			ExecObsMng,
 			EDROOMMemoryTrans };
 
 		//!Constants
@@ -215,14 +215,14 @@ public:
 
 
 		//!Variables
-		Pr_Time &VNextTimeOut;
+		Pr_Time &VNextTimeout;
 
 
 
 
 		//!Constructor
 		EDROOM_CTX_Top_0 (CCObsMng &act,
-				Pr_Time & EDROOMpVarVNextTimeOut );
+				Pr_Time & EDROOMpVarVNextTimeout );
 
 		//!Copy constructor
 		EDROOM_CTX_Top_0 (EDROOM_CTX_Top_0 &context);
@@ -255,7 +255,7 @@ public:
 		/**
 		 * \brief  
 		 */
-		void	FDoActtitudeCtrl();
+		void	FDoAttitudeCtrl();
 
 		/**
 		 * \brief  
@@ -265,7 +265,7 @@ public:
 		/**
 		 * \brief  
 		 */
-		void	FExecObsMng_TC();
+		void	FExecObsMngTC();
 
 		/**
 		 * \brief  
@@ -325,7 +325,7 @@ public:
 		EDROOM_CTX_Top_0::TEDROOMStateID edroomNextState;
 
 		//!Variables
-		Pr_Time VNextTimeOut;
+		Pr_Time VNextTimeout;
 
 
 

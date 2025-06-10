@@ -40,7 +40,7 @@ public:
 	 */
 	 enum TEDROOMCCTCManagerSignal { EDROOMSignalTimeout, 
 							EDROOMSignalDestroy, 
-							SOBSMNG, 
+							SObsMng_TC, 
 							EDROOMIRQsignal, 
 							SBKGTC, 
 							SHK_FDIR_TC, 
@@ -212,7 +212,7 @@ public:
 	 */
 	enum TEDROOMCCTCManagerSignal { EDROOMSignalTimeout,
 		EDROOMSignalDestroy,
-		SOBSMNG,
+		SObsMng_TC,
 		EDROOMIRQsignal,
 		SBKGTC,
 		SHK_FDIR_TC,
@@ -252,7 +252,7 @@ public:
 			HandleTC_ToReboot,
 			HandleTC_FwdHK_FDIRTC,
 			HandleTC_FwdToBKGTCExec,
-			HandleTC_FFwdObsMngTC,
+			HandleTC_FwdObsMngTC,
 			HandleTC_ExecPrioTC,
 			NewEvAction,
 			EDROOMMemoryTrans };
@@ -373,17 +373,17 @@ public:
 		/**
 		 * \brief  
 		 */
-		bool	GFwdObsMng();
-
-		/**
-		 * \brief  
-		 */
 		bool	GFwdToBKGTCExec();
 
 		/**
 		 * \brief  
 		 */
 		bool	GFwdToHK_FDIR();
+
+		/**
+		 * \brief  
+		 */
+		bool	GFwdToObsMngCExec();
 
 		/**
 		 * \brief  

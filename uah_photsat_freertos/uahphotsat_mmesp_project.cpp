@@ -34,8 +34,8 @@ int main (void){
  
  
 	UAHPhotSat	comp1(1, 13, EDROOMprioNormal, 1024, systemDeployment.GetComp1Memory());
-	CCBKGTCExec	comp2(2, 10, EDROOMprioNormal, 1024, systemDeployment.GetComp2Memory());
-	CCHK_FDIRMng	comp3(3, 13, EDROOMprioLow, 4096, systemDeployment.GetComp3Memory());
+	CCBKGTCExec	comp2(2, 10, EDROOMprioVeryLow, 1024, systemDeployment.GetComp2Memory());
+	CCHK_FDIRMng	comp3(3, 13, EDROOMprioNormal, 4096, systemDeployment.GetComp3Memory());
 	CCTCManager	comp4(4, 10, EDROOMprioNormal, 4096, systemDeployment.GetComp4Memory());
 	CCObsMng	comp5(5, 15, EDROOMprioVeryHigh, 1024, systemDeployment.GetComp5Memory());
  
@@ -43,6 +43,6 @@ int main (void){
  
 	systemDeployment.Start();
  
-	;
+	return 0;
  
 }
