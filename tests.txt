@@ -1,0 +1,50 @@
+#include <public/emu_hw_timecode_drv_v1.h>
+#include <public/emu_sc_channel_drv_v1.h>
+#include <public/emu_gss_v1.h>
+
+//TODO Complete FT_UAH_PHOTSAT_SERV_129_0010
+/*
+#define  FT_UAH_PHOTSAT_SERV_129_0010
+
+#ifdef FT_UAH_PHOTSAT_SERV_129_0010
+
+
+EmuGSS_TCProgram129_1 prog_FT_UAH_PHOTSAT_SERV_129_0010_step1(
+OBT_AFTER_POWER_ON + 5,
+"FT_UAH_PHOTSAT_SERV_129_0010_STEP1: Target Objectives (ThetaPitch=30, ThetaYaw=45,number of images=3)",
+30, 45, 3);
+#endif
+*/
+
+//TODO Complete FT_UAH_PHOTSAT_SERV_129_FDIR_0020
+#define  FT_UAH_PHOTSAT_SERV_129_FDIR_0020
+
+#ifdef FT_UAH_PHOTSAT_SERV_129_FDIR_0020
+
+
+//Allowance of events-results associated with 0x4003
+EmuGSS_TCProgram19_4 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step0( OBT_AFTER_POWER_ON, "FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP0: allowance of the event 0x4003", 0x4003);
+
+//Add the monitoring of ThetaPitch
+EmuGSS_TCProgram12_5_Value_UINT8 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step1( OBT_AFTER_POWER_ON + 5, "FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP1 ,Define PMOIND 1 for monitoring PID 13", 1, 13, 1, 1, 0xFF, 0x00, 0x4003);
+
+//Add the monitoring of ThetaYaw
+EmuGSS_TCProgram12_5_Value_UINT8 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step2( OBT_AFTER_POWER_ON + 10, "FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP2 ,Define PMOIND 2 for monitoring PID 14", 2, 14, 1, 1, 0xFF, 0x00, 0x4003);
+
+//Activation of the monitoring of Thetapitch
+EmuGSS_TCProgram12_1 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step3( OBT_AFTER_POWER_ON + 15, "FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP3, Monitoring PMONID 1", 1);
+
+//Activation of the monitoring of ThetaYaw
+EmuGSS_TCProgram12_1 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step4( OBT_AFTER_POWER_ON + 20, "FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP4, Monitoring PMONID 2", 2);
+
+// Rest of the angles to zero
+EmuGSS_TCProgram19_1_Action_129_3 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step5( OBT_AFTER_POWER_ON + 25, "FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP5: Reset of the angles to cero with TC[129,3]", 0x4003);
+
+// Set the values to high levels
+EmuGSS_TCProgram129_2 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step6( OBT_AFTER_POWER_ON + 30, "FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP6:Configuration PID with high values (Kp=0.5, Ki=0.5, Kd=0.5)", 0.5, 0.5, 0.5);
+
+//Observation, make the pictures
+EmuGSS_TCProgram129_1 prog_FT_UAH_PHOTSAT_SERV_129_FDIR_0020_step7(OBT_AFTER_POWER_ON + 35, "FT_UAH_PHOTSAT_SERV_129_FDIR_0020_STEP7: Simulation with forzed values (ThetaPitch=23, ThetaYaw=45, num_samples=3)", 45, 23, 3);
+
+
+#endif
