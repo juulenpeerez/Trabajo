@@ -19,7 +19,7 @@ CCObsMng::EDROOM_CTX_Top_0::EDROOM_CTX_Top_0(CCObsMng &act,
 	ObsMngCtrl(EDROOMcomponent.ObsMngCtrl),
 	AttCtrlTimer(EDROOMcomponent.AttCtrlTimer),
 	ObsTimer(EDROOMcomponent.ObsTimer),
-	CImageInterval(0,500000),
+	CImageInterval(1,500000),
 	VNextTimeout(EDROOMpVarVNextTimeout)
 {
 }
@@ -32,7 +32,7 @@ CCObsMng::EDROOM_CTX_Top_0::EDROOM_CTX_Top_0(EDROOM_CTX_Top_0 &context):
 	ObsMngCtrl(context.ObsMngCtrl),
 	AttCtrlTimer(context.AttCtrlTimer),
 	ObsTimer(context.ObsTimer),
-	CImageInterval(0,500000),
+	CImageInterval(1,500000),
 	VNextTimeout(context.VNextTimeout)
 {
 
